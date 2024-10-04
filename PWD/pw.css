@@ -1,0 +1,11 @@
+.grid-container {
+    justify-content: center;
+    display: grid;
+    padding-bottom: 55px;
+    padding-top: 55px;
+}
+
+#env {
+    display: block;
+    margin: 0 auto;
+}

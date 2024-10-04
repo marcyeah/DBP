@@ -1,0 +1,271 @@
+@media screen and (min-width: 1881px) {
+    .grid-container {
+        padding: 50px;
+        grid-template-rows: 175px auto;
+        grid-template-columns: 265px 494px;
+    }
+
+    .header-info h2 {
+        font-size: 20px;
+    }
+
+    .profile-img img{
+        width: 138px;
+        height: 138px;
+    }
+
+    .sidebar {
+        padding: 25px;
+        padding-left: 40px;
+    }
+
+    .sidebar1-content h1 {
+        font-size: 18px;
+    }
+
+    .sidebar2-content h1 {
+        font-size: 18px;
+    }
+    
+    .sidebar2-content p {
+        line-height: 18px;
+    }
+
+    .sidebar-block {
+        padding-bottom: 20px;
+    }
+
+    .sidebar-block p {
+        font-size: 15px;
+        margin-top: 15px;
+    }
+    
+    .sidebar-block ul {
+        font-size: 14px;
+        padding-left: 18px;
+    }
+
+    .sidebar-block hr {
+        margin-top: 4px;
+    }
+
+    .sidebar-box h1{
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    .icon-list1 li::before {
+        margin-right: 8px;
+    }
+    
+    .icon-list2 li::before {
+        margin-right: 8px;
+    }
+    
+    .icon-list3 li::before {
+        margin-right: 8px;
+    }
+    
+    .icon-list4 li::before {
+        margin-right: 8px;
+    }
+}
+
+@media screen and (min-height: 500px) {
+    .grid-container {
+        position: relative;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+@media screen and (max-width: 1880px) {
+    .grid-container {
+        padding: 40px;
+        grid-template-rows: 88px auto;
+        grid-template-columns: 132px 247px;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .profile-img img{
+        width: 69px;
+        height: 69px;
+        border-radius: 100px;
+    }
+
+    .sidebar {
+        padding: 12px;
+        padding-left: 20px;
+    }
+
+    .sidebar1-content h1 {
+        font-size: 9px;
+    }
+
+    .sidebar2-content h1 {
+        font-size: 9px;
+    }
+    
+    .sidebar2-content p {
+        line-height: 9px;
+    }
+
+    .sidebar-block {
+        padding-bottom: 10px;
+    }
+
+    .sidebar-block p {
+        font-size: 8px;
+    }
+    
+    .sidebar-block ul {
+        font-size: 7px;
+        padding-left: 9px;
+    }
+
+    .sidebar-block hr {
+        margin-top: 2px;
+        margin-bottom: 0;
+    }
+
+    .text {
+        font-size: 8px;
+    }
+
+    .sidebar-box h1{
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    .icon-list1 li::before {
+        margin-right: 4px;
+    }
+    
+    .icon-list2 li::before {
+        margin-right: 4px;
+    }
+    
+    .icon-list3 li::before {
+        margin-right: 4px;
+    }
+    
+    .icon-list4 li::before {
+        margin-right: 4px;
+    }
+}
+
+@media screen and (min-height: 1038px) {
+    .grid-container {
+        position: relative;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+.grid-container {
+    font-family: Arial;
+    display: grid;
+}
+
+.header {
+    background-color: #000000;
+    align-items: center;
+    font-family: Calibri;
+    display: grid;
+    text-align: center;
+}
+
+.header-info h1 {
+    font-family: Verdana;
+    font-weight: lighter;
+    color: white;
+}
+
+.header-info h2 {
+    font-weight: lighter;
+    color: #ccc;
+    margin-top: 0;
+}
+
+.profile-img img{
+    border-radius: 100px;
+    border: 2px solid white;
+    object-fit: cover;
+    margin-top: 40px;
+    position: relative;
+}
+
+.sidebar1-content h1 {
+    font-weight: bold;
+    font-family: Arial;
+    margin-bottom: 0;
+}
+
+.sidebar2-content h1 {
+    font-weight: bold;
+    font-family: Arial;
+    margin-bottom: 0;
+}
+
+.sidebar2-content p {
+    font-weight: bold;
+    font-family: Arial;
+    margin-bottom: 0;
+}
+
+.sidebar-block ul {
+    font-weight: bold;
+    font-family: Arial;
+    margin-top: 5%;
+    margin-bottom: 0;
+}
+
+.sidebar-block li {
+    padding-bottom: 5%;
+}
+
+.sidebar-box {
+    color:#808080;
+}
+
+.sidebar-box h1{
+    color:black;
+}
+
+.sidebar-box i {
+    font-weight: 900;
+    color:black;
+}
+
+.sidebar-box ul {
+    color:black;
+    padding-left: 16px;
+    margin-top: 10px;
+}
+
+.sidebar-box li {
+    padding-bottom: 10px;
+}
+
+.icon-list1 li::before {
+    font-family:"Material Icons";
+	content:"call";
+}
+
+.icon-list2 li::before {
+    font-family:"Material Icons";
+	content:"mail";
+}
+
+.icon-list3 li::before {
+    font-family:"Material Icons";
+	content:"location_on";
+}
+
+.icon-list4 li::before {
+    font-family:"Material Icons";
+	content:"link";
+}

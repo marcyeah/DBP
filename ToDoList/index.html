@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let buttonsCreated = false;
+            document.querySelector('#new-task').onsubmit = () => {
+                if(document.querySelector('#task').value === '') {
+                    event.preventDefault();
+                    alert("No se puede ingresar una lista vacía");
+                } else {
+                    const cb = document.createElement("INPUT");
+                    cb.setAttribute("type", "checkbox");
+
+                    const li = document.createElement('li');
+
+                    li.appendChild(cb);
+
+                    const taskText = document.createTextNode(document.querySelector('#task').value);
+                    li.appendChild(taskText);
+
+                    const xbutton = document.createElement("button");
+                    li.appendChild(xbutton);
+
+                    const xbuttoncontent = document.createTextNode('x');
+                    xbutton.append(xbuttoncontent);
+
+                    xbutton.style.marginLeft = '4px';
+
+                    document.querySelector('#tasks').append(li);
+                    document.querySelector('#task').value = '';
+
+                    if (!buttonsCreated) {
+                        const tbutton1 = document.createElement("button");
+
+                        const tbuttoncontent1 = document.createTextNode('Marcar todo');
+                        tbutton1.append(tbuttoncontent1);
+
+                        const tbutton2 = document.createElement("button");
+
+                        const tbuttoncontent2 = document.createTextNode('Resetear');
+                        tbutton2.append(tbuttoncontent2);
+
+                        const tbutton3 = document.createElement("button");
+
+                        const tbuttoncontent3 = document.createTextNode('Borrar Todo');
+                        tbutton3.append(tbuttoncontent3);
+
+                        document.querySelector('#tbuttons').appendChild(tbutton1);
+                        document.querySelector('#tbuttons').appendChild(tbutton2);
+                        document.querySelector('#tbuttons').appendChild(tbutton3);
+
+                        tbutton1.style.marginRight = '4px';
+                        tbutton3.style.marginLeft = '4px';
+
+                        tbutton1.addEventListener('click', () => {
+                            document.querySelectorAll('#tasks li').forEach(function(liElement) {
+                                const checkbox = liElement.querySelector('input[type=checkbox]');
+                                checkbox.checked = true;
+                                liElement.style.textDecoration = 'line-through';
+                            });
+                        });
+
+                        tbutton2.addEventListener('click', () => {
+                            document.querySelectorAll('#tasks li').forEach(function(liElement) {
+                                const checkbox = liElement.querySelector('input[type=checkbox]');
+                                checkbox.checked = false;
+                                liElement.style.textDecoration = 'none';
+                            });
+                        });
+
+                        tbutton3.addEventListener('click', () => {
+                            document.querySelectorAll('#tasks li').forEach(function(liElement) {
+                                liElement.remove();
+                            });
+                        });
+
+                        buttonsCreated = true;
+                    }
+
+                    cb.addEventListener('change', () => {
+                        if (cb.checked) {
+                            li.style.textDecoration = 'line-through';
+                        } else {
+                            li.style.textDecoration = 'none';
+                        }
+                    });
+
+                    xbutton.addEventListener('click', () => {
+                        li.remove();
+                    });
+                
+                    return false;
+                }
+            };
+        });
+    </script>
+</head>
+<body style="background-color: #1f4c53;">
+    <div class="grid-container">
+        <p style="font-family: Calibri; font-size: 20px; background-color: #f2f2f2; margin: 0; padding-inline: 35px; padding-top: 30px;">Desarrollo Basado en Plataformas</p>
+        <h1 style="font-family: Calibri; background-color: #f2f2f2; margin: 0; padding-inline: 35px; padding-block: 15px;">Tareas</h1>
+        <form id="new-task" style="background-color: #f2f2f2; margin: 0; padding-inline: 35px; padding-bottom: 15px;">
+            <input id="task" autocomplete="off" autofocus placeholder="Nueva Tarea" type="text">
+            <input type="submit" id="button" value="Añadir Tarea" style="margin-left: 2px;">
+        </form>
+        <div id="tbuttons" style="margin-top: 0; background-color: #f2f2f2; padding-left: 35px;">
+        </div>
+        <ol id="tasks" style="background-color: #f2f2f2; margin-top: 0; padding-left: 75px; padding-top: 10px; padding-bottom: 10px;">
+        </ol>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="pw.css">
+    <script>
+        function validation(event) {
+            let nombre = document.forms["datos"]["nombre"].value;
+            let apellido = document.forms["datos"]["apellido"].value;
+            let idioma = document.forms["datos"]["idioma"].value;
+            let titulo = document.forms["datos"]["titulo"].value;
+            let institucion = document.forms["datos"]["institucion"].value;
+            let descripcion = document.forms["datos"]["perf"].value;
+
+            if (nombre === "" || apellido === "" || idioma === "" || titulo === "" || institucion === "" || descripcion === "") {
+                event.preventDefault();
+                alert("Falta completar uno o varios campos.");
+            }
+            else {
+                let formData = new FormData(document.forms["datos"]);
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "post.php", true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        alert("Datos enviados correctamente.");
+                    }
+                };
+                xhr.send(formData);
+            }
+        }
+    </script>
+</head>
+<body style="font-family: Calibri; background-color: #000000; height: 100%">
+
+    <div class="grid-container">
+        <h1 style="text-align: center; background-color: snow; margin: 0; padding: 30px;">Formulario</h1>
+        <form name="datos" method="post" action="pw.php" style="background-color: snow; padding: 30px; padding-top: 0; padding-bottom: 25px;" onsubmit="validation(event)">
+            <label for="nombre" style="font-weight: bold;">Ingrese su nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br><br>
+
+            <label for="apellido" style="font-weight: bold;">Ingrese su apellido:</label>
+            <input type="text" id="apellido" name="apellido"><br><br>
+
+            <label for="idioma" style="font-weight: bold;">Idioma:</label>
+            <select name="idioma[]" id="idioma">
+                <option value="Español - A1">Español - A1</option>
+                <option value="Español - A2">Español - A2</option>
+                <option value="Español - B1">Español - B1</option>
+                <option value="Español - B2">Español - B2</option>
+                <option value="Español - C1">Español - C1</option>
+                <option value="Español - C2">Español - C2</option>
+                <option value="Español Nativo">Español Nativo</option>
+                <option value="Inglés - A1">Inglés - A1</option>
+                <option value="Inglés - A2">Inglés - A2</option>
+                <option value="Inglés - B1">Inglés - B1</option>
+                <option value="Inglés - B2">Inglés - B2</option>
+                <option value="Inglés - C1">Inglés - C1</option>
+                <option value="Inglés - C2">Inglés - C2</option>
+                <option value="Inglés Nativo">Inglés Nativo</option>
+                <option value="otro">Otro</option>
+            </select><br><br>
+
+            <label for="habilidades" style="font-weight: bold;">Habilidades:</label><br>
+            <label for="hab1">Pack office</label>
+            <input type="checkbox" id="hab1" name="habilidades[]" value="Pack Office"><br>
+            <label for="hab2">Backend</label>
+            <input type="checkbox" id="hab2" name="habilidades[]" value="Backend"><br>
+            <label for="hab3">Frontend</label>
+            <input type="checkbox" id="hab3" name="habilidades[]" value="Frontend"><br><br>
+
+            <label for="perf" style="font-weight: bold;">Descripción:</label><br>
+            <textarea name="perf" id="perf" rows="4" cols="20"></textarea><br><br>
+
+            <label for="formacion" style="font-weight: bold;">Formación:</label><br>
+            <input type="text" id="titulo" name="titulo"><br>
+            <select name="institucion[]" id="institucion">
+                <option value="UCSP">Universidad Católica San Pablo</option>
+                <option value="USMP">Universidad San Martín de Porres</option>
+                <option value="UCSM">Universidad Católica de Santa María</option>
+                <option value="PUCP">Pontificia Universidad Católica del Perú</option>
+                <option value="UNSA">Universidad Nacional de San Agustín</option>
+                <option value="otro">Otro</option>
+            </select><br><br>
+
+            <input type="submit" id="env" value="Enviar">
+        </form>
+    </div>
+    
+</body>
+</html>
