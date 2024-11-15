@@ -1,0 +1,14 @@
+type Query {
+    hello: String!
+    greeting(name: String!): String!
+    phone(id: ID!, ph: String!): String!
+    birth(id: ID!): String!
+    getPerson(id: ID!): Person
+}
+
+type Person {
+    id: ID!
+    name: String!
+    phone: String!
+    age: Int!
+}
